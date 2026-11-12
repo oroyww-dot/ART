@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ART — Sinfonia Artística</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+
+  <header class="navbar">
+    <div class="logo" onclick="showSection('home')">
+      <span class="logo-neon">ART</span>
+      <span class="logo-sub">Sinfonia Artística</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#" onclick="showSection('home')" data-section="home">Início</a>
+      <a href="#" onclick="showSection('artes')" data-section="artes">Artes</a>
+      <a href="#" onclick="showSection('marketplace')" data-section="marketplace">Marketplace</a>
+      <a href="#" onclick="showSection('musicos')" data-section="musicos">Músicos</a>
+      <a href="#" onclick="showSection('sobre')" data-section="sobre">Sobre</a>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <!-- HOME -->
+  <section id="home" class="section active">
+    <div class="hero-banner">
+      <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=1400&q=80" alt="Arte e expressão" />
+      <div class="hero-banner-overlay">
+        <h1 class="hero-title">
+          <span class="neon-text">ART</span>
+          <br />onde todas as artes se encontram
+        </h1>
+        <p class="hero-desc">
+          Da pintura clássica ao graffiti de rua, da música erudita às bandas underground.
+          Um espaço vivo para criar, conectar e comprar.
+        </p>
+        <div class="hero-btns">
+          <button class="btn-neon" onclick="showSection('artes')">Explorar Artes</button>
+          <button class="btn-outline" onclick="showSection('marketplace')">Marketplace</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="quick-cards">
+      <div class="q-card" onclick="showSection('artes')">
+        <div class="q-banner">
+          <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&q=80" alt="Artes" />
+        </div>
+        <div class="q-body">
+          <h3>Todas as Artes</h3>
+          <p>Pintura, desenho, música, dança, literatura e graffiti</p>
+        </div>
+      </div>
+      <div class="q-card" onclick="showSection('marketplace')">
+        <div class="q-banner">
+          <img src="https://images.unsplash.com/photo-1513361235322-82aad4831b21?w=600&q=80" alt="Marketplace" />
+        </div>
+        <div class="q-body">
+          <h3>Marketplace</h3>
+          <p>Materiais e instrumentos com busca de melhor preço</p>
+        </div>
+      </div>
+      <div class="q-card" onclick="showSection('musicos')">
+        <div class="q-banner">
+          <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80" alt="Músicos" />
+        </div>
+        <div class="q-body">
+          <h3>Encontre sua Banda</h3>
+          <p>Perfis de músicos buscando grupos amadores e profissionais</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTES -->
+  <section id="artes" class="section">
+    <div class="section-header">
+      <h2 class="neon-text">Universo das Artes</h2>
+      <p>Cada forma de expressão tem seu espaço</p>
+    </div>
+
+    <div class="arts-grid">
+      <article class="art-card" data-art="pintura">
+        <div class="art-banner">
+          <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=700&q=80" alt="Pintura" />
+        </div>
+        <div class="art-body">
+          <h3>Pintura</h3>
+          <p>Óleo, aquarela, acrílica, muralismo e muito mais. Do clássico ao contemporâneo.</p>
+          <button class="btn-small" onclick="openArtDetail('pintura')">Explorar</button>
+        </div>
+      </article>
+      <article class="art-card" data-art="desenho">
+        <div class="art-banner">
+          <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=700&q=80" alt="Desenho" />
+        </div>
+        <div class="art-body">
+          <h3>Desenho</h3>
+          <p>Grafite, nanquim, digital, croquis e ilustração. Linhas que contam histórias.</p>
+          <button class="btn-small" onclick="openArtDetail('desenho')">Explorar</button>
+        </div>
+      </article>
+      <article class="art-card" data-art="musica">
+        <div class="art-banner">
+          <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=700&q=80" alt="Música" />
+        </div>
+        <div class="art-body">
+          <h3>Música</h3>
+          <p>Composições, performances, gravações e a busca por novos sons.</p>
+          <button class="btn-small" onclick="openArtDetail('musica')">Explorar</button>
+        </div>
+      </article>
+      <article class="art-card" data-art="bandas">
+        <div class="art-banner">
+          <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=700&q=80" alt="Bandas" />
+        </div>
+        <div class="art-body">
+          <h3>Bandas</h3>
+          <p>Amadoras e profissionais. Formações, gigs e conexões entre músicos.</p>
+          <button class="btn-small" onclick="openArtDetail('bandas')">Explorar</button>
+        </div>
+      </article>
+      <article class="art-card" data-art="danca">
+        <div class="art-banner">
+          <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=700&q=80" alt="Dança" />
+        </div>
+        <div class="art-body">
+          <h3>Dança</h3>
+          <p>Clássica, contemporânea, street, folklórica. O corpo como linguagem.</p>
+          <button class="btn-small" onclick="openArtDetail('danca')">Explorar</button>
+        </div>
+      </article>
+      <article class="art-card" data-art="escrita">
+        <div class="art-banner">
+          <img src="https://images.unsplash.com/photo-1455390582262-044cdead168a?w=700&q=80" alt="Artes Escritas" />
+        </div>
+        <div class="art-body">
+          <h3>Artes Escritas</h3>
+          <p>Poesia, contos, crônicas, roteiros e literatura experimental.</p>
+          <button class="btn-small" onclick="openArtDetail('escrita')">Explorar</button>
+        </div>
+      </article>
+      <article class="art-card" data-art="graffiti">
+        <div class="art-banner">
+          <img src="https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=700&q=80" alt="Graffiti" />
+        </div>
+        <div class="art-body">
+          <h3>Graffiti & Street</h3>
+          <p>Muros, tags, murais e a arte que nasce na rua e transforma a cidade.</p>
+          <button class="btn-small" onclick="openArtDetail('graffiti')">Explorar</button>
+        </div>
+      </article>
+    </div>
+
+    <div id="art-modal" class="modal hidden">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeArtDetail()">×</button>
+        <div id="art-modal-body"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKETPLACE -->
+  <section id="marketplace" class="section">
+    <div class="section-banner">
+      <img src="https://images.unsplash.com/photo-1513361235322-82aad4831b21?w=1400&q=80" alt="Materiais de arte" />
+      <div class="section-banner-overlay">
+        <h2 class="neon-text">Marketplace ART</h2>
+        <p>Materiais de arte e instrumentos com busca inteligente de melhor preço</p>
+      </div>
+    </div>
+
+    <div class="market-layout">
+      <aside class="filters-panel">
+        <h3>Filtros</h3>
+        <div class="filter-group">
+          <label>Categoria</label>
+          <select id="filter-cat">
+            <option value="all">Todas</option>
+            <option value="materiais">Materiais de Arte</option>
+            <option value="instrumentos">Instrumentos Musicais</option>
+            <option value="acessorios">Acessórios</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Preço máximo (R$)</label>
+          <input type="number" id="filter-price" placeholder="Ex: 500" min="0" />
+        </div>
+        <div class="filter-group">
+          <label>Palavra-chave</label>
+          <input type="text" id="filter-keyword" placeholder="Ex: guitarra, aquarela..." />
+        </div>
+        <button class="btn-neon full" onclick="runSearch()">Buscar melhor preço</button>
+        <p class="hint">Busca simulada com base em requisitos (estilo Kabum / Mercado Livre)</p>
+      </aside>
+
+      <div class="results-area">
+        <div class="search-bar">
+          <input type="text" id="main-search" placeholder="O que você precisa? Ex: kit aquarela profissional, baixo elétrico..." />
+          <button class="btn-neon" onclick="runSearch()">Buscar</button>
+        </div>
+        <div id="results-list" class="results-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÚSICOS -->
+  <section id="musicos" class="section">
+    <div class="section-banner">
+      <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1400&q=80" alt="Músicos e bandas" />
+      <div class="section-banner-overlay">
+        <h2 class="neon-text">Músicos & Bandas</h2>
+        <p>Deixe seu perfil e encontre (ou forme) o grupo certo — amador ou profissional</p>
+      </div>
+    </div>
+
+    <div class="musicos-layout">
+      <div class="profile-form-card">
+        <h3>Publicar meu perfil</h3>
+        <form id="profile-form" onsubmit="addProfile(event)">
+          <div class="form-row">
+            <input type="text" id="p-name" placeholder="Seu nome artístico" required />
+            <select id="p-role" required>
+              <option value="">Instrumento / Função</option>
+              <option>Vocal</option>
+              <option>Guitarra</option>
+              <option>Baixo</option>
+              <option>Bateria</option>
+              <option>Teclado / Synth</option>
+              <option>Violão</option>
+              <option>Sax / Sopro</option>
+              <option>DJ / Produtor</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <select id="p-level" required>
+              <option value="">Nível</option>
+              <option>Amador</option>
+              <option>Semi-profissional</option>
+              <option>Profissional</option>
+            </select>
+            <input type="text" id="p-city" placeholder="Cidade / Região" required />
+          </div>
+          <input type="text" id="p-styles" placeholder="Estilos (ex: rock, jazz, MPB, eletrônica...)" required />
+          <textarea id="p-bio" rows="3" placeholder="O que você busca? (banda, projeto, gravação...)" required></textarea>
+          <button type="submit" class="btn-neon full">Publicar perfil</button>
+        </form>
+      </div>
+
+      <div class="profiles-list-area">
+        <div class="list-header">
+          <h3>Perfis ativos</h3>
+          <div class="list-filters">
+            <select id="filter-role" onchange="filterProfiles()">
+              <option value="all">Todos os instrumentos</option>
+              <option>Vocal</option>
+              <option>Guitarra</option>
+              <option>Baixo</option>
+              <option>Bateria</option>
+              <option>Teclado / Synth</option>
+              <option>Violão</option>
+              <option>Sax / Sopro</option>
+              <option>DJ / Produtor</option>
+              <option>Outro</option>
+            </select>
+            <select id="filter-level" onchange="filterProfiles()">
+              <option value="all">Todos os níveis</option>
+              <option>Amador</option>
+              <option>Semi-profissional</option>
+              <option>Profissional</option>
+            </select>
+          </div>
+        </div>
+        <div id="profiles-container" class="profiles-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="section">
+    <div class="section-banner">
+      <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=1400&q=80" alt="Sobre o ART" />
+      <div class="section-banner-overlay">
+        <h2 class="neon-text">Sobre o ART</h2>
+      </div>
+    </div>
+    <div class="sobre-content">
+      <p>
+        O <strong>ART</strong> nasceu da ideia de reunir todas as expressões artísticas em um só lugar —
+        da pintura clássica ao graffiti de rua, da música erudita às bandas que ensaiam na garagem.
+      </p>
+      <p>
+        Aqui você explora, conecta e encontra materiais e instrumentos com uma busca pensada
+        para entregar o melhor preço de mercado, inspirada em plataformas como Kabum e Mercado Livre.
+      </p>
+      <p>
+        Músicos e cantores podem criar perfis e buscar inclusão em grupos amadores ou profissionais.
+        A arte não precisa de fronteiras — só de um espaço para acontecer.
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="logo-neon">ART</span>
+      <p>Sinfonia Artística — todas as artes, um só ritmo.</p>
+      <p class="copy">© 2026 ART. Feito com paixão pela expressão.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
